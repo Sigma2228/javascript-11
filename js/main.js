@@ -66,14 +66,30 @@ document.getElementById('confirmButton').addEventListener('click', function () {
         message.textContent = 'введіть коректне число'
     }
 })
-// const user = {
-//     name: 'Petro',
-//     email: 'sigmapetro666@gmail.com',
-//     password: 'Petro666'
-// }
-// function checkLogin(login) {
+const user = {
+    name: 'Petro',
+    email: 'sigmapetro666@gmail.com',
+    password: 'Petro666',
 
-// // }...
+
+   login(nameInput, emailInput, passwordInput) {
+    if(this.name === nameInput && this.email === emailInput && this.password === passwordInput) {
+        alert(`ласкаво просимо ${this.name}`);
+    }
+    else {
+        alert('Не вірна інформація')
+    }
+  }
+}
+
+    document.getElementById('loginButton').addEventListener('click', function(){
+        const nameInput = document.getElementById('nameInput').value
+        const emailInput = document.getElementById('emailInput').value
+        const passwordInput = document.getElementById('passwordInput').value
+        user.login(nameInput, emailInput, passwordInput)
+    })
+ 
+
 const movie = {
     title: 'Oppenheimer',
     director: 'Christopher Nolan',
@@ -81,10 +97,7 @@ const movie = {
 }
 
 function filmRating(rating) {
-    const notice = document.getElementById('notice')
     if (rating > 8) {
-        notice.textContent = 'рейтинг фільму 9'
-        this.title.style.color = 'green'
         return true
     }
 
@@ -93,6 +106,8 @@ function filmRating(rating) {
     }
 }
 document.getElementById('checkButton').addEventListener('click', function () {
+document.getElementById('title').style.color = 'green'
+const notice = document.getElementById('notice')
   notice.textContent = 'рейтинг фільму 9'
 }
 )
